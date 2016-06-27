@@ -6,13 +6,13 @@
 		<key>title</key>
 		<string>身份核查</string>
 		<key>image</key>
-		<string>idcheck.png</string>
+		<string>flag.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>银行卡核查</string>
 		<key>image</key>
-		<string>creditcardcheck.png</string>
+		<string>flag.png</string>
 	</dict>
 </array>
 </plist>

@@ -44,14 +44,16 @@
     //黑屏
     //    VertificatonUI *vertify=[[VertificatonUI alloc]init];
     VertificatonUI *vertify=[self.storyboard instantiateViewControllerWithIdentifier:@"SBRIGHT"];
-    vertify.type=[NSString stringWithFormat:@"%ld",indexPath.row];
+    vertify.type=[NSString stringWithFormat:@"%ld",(long)indexPath.row];
     //用push 报错
-    [self presentViewController:vertify animated:YES completion:nil];
-    NSLog(@"clicked at %ld ",indexPath.row);
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:vertify];
+    
+    [self presentViewController:navController animated:YES completion:nil];
+    NSLog(@"clicked at %ld ",(long)indexPath.row);
 
 }
 /**
- *此方法 在tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 提前执行
+ *此方法 在tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 提前执行 可能我没理解好？
  */
 //-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 //{

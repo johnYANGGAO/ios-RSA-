@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		387C5423B4D35BA93FE6FD4E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACFE1AF4E3CCF92B70C0868 /* libPods.a */; };
 		7B0DE8FE1CB34C2B0053A860 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0DE8FD1CB34C2B0053A860 /* main.m */; };
 		7B0DE9011CB34C2B0053A860 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0DE9001CB34C2B0053A860 /* AppDelegate.m */; };
 		7B0DE9041CB34C2B0053A860 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0DE9031CB34C2B0053A860 /* ViewController.m */; };
@@ -24,10 +23,21 @@
 		7B0DE93B1CB392870053A860 /* ImageRelevent.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B0DE9391CB392870053A860 /* ImageRelevent.xcdatamodeld */; };
 		7B373C151CB4DFCA00B21546 /* DetailInfoUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B373C141CB4DFCA00B21546 /* DetailInfoUIViewController.m */; };
 		7B373C181CB505F600B21546 /* mainLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B373C171CB505F600B21546 /* mainLoad.m */; };
+		7B5204F11D1A630400BD0B3D /* BasicInfoDisplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5204F01D1A630400BD0B3D /* BasicInfoDisplayer.m */; };
+		7B5204F41D1A63D200BD0B3D /* AccountInfoDisplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5204F31D1A63D200BD0B3D /* AccountInfoDisplayer.m */; };
+		7B5204F71D1A640C00BD0B3D /* ExtraInfoDisplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5204F61D1A640C00BD0B3D /* ExtraInfoDisplayer.m */; };
+		7B5529A81CFE748600017FF5 /* AESUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5529A71CFE748600017FF5 /* AESUtil.m */; };
 		7B6E88091CB6589C007FD961 /* RecordsDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E88081CB6589C007FD961 /* RecordsDetail.m */; };
+		7B70E3951D065D3F00140C88 /* IDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B70E3941D065D3F00140C88 /* IDUtil.m */; };
+		7B729D471D10EF590012F99D /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B729D461D10EF590012F99D /* flag.png */; };
+		7B729D4A1D1108D50012F99D /* VertificationrecordsCellHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B729D491D1108D50012F99D /* VertificationrecordsCellHeader.m */; };
+		7B729D4D1D11569A0012F99D /* BillRecordsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B729D4C1D11569A0012F99D /* BillRecordsModel.m */; };
 		7B912FB41CB49CFB0074B73C /* VertificationCategory.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B912FB31CB49CFB0074B73C /* VertificationCategory.plist */; };
 		7B912FBE1CB4A4ED0074B73C /* NetConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B912FBD1CB4A4ED0074B73C /* NetConnection.m */; };
-		7BE113201CB764A300DD5A39 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE1131D1CB764A300DD5A39 /* NSString+MD5.m */; };
+		7BBA48571D12892D00BE30BF /* UITableViewController+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA48561D12892D00BE30BF /* UITableViewController+Alert.m */; };
+		7BBA485A1D12AEF700BE30BF /* FilterForRecords.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA48591D12AEF700BE30BF /* FilterForRecords.m */; };
+		7BCFBED61D13A07500EAEB5D /* IDRecordsModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BCFBED51D13A07500EAEB5D /* IDRecordsModelData.m */; };
+		7BCFBED91D13A30400EAEB5D /* BillRecordsModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BCFBED81D13A30400EAEB5D /* BillRecordsModelData.m */; };
 		7BE113231CB765DB00DD5A39 /* public_key.der in Resources */ = {isa = PBXBuildFile; fileRef = 7BE113221CB765DB00DD5A39 /* public_key.der */; };
 		7BE113251CB791C700DD5A39 /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BE113241CB791C700DD5A39 /* libiconv.2.4.0.tbd */; };
 		7BE113291CB79AE500DD5A39 /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE113281CB79AE500DD5A39 /* RSA.m */; };
@@ -51,8 +61,20 @@
 		7BE632381CB6008400759DE5 /* icon_refresh_7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BE6322A1CB6008400759DE5 /* icon_refresh_7@2x.png */; };
 		7BE632391CB6008400759DE5 /* icon_refresh_7@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BE6322B1CB6008400759DE5 /* icon_refresh_7@3x.png */; };
 		7BE6323C1CB60DC700759DE5 /* VetificationrecordsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE6323B1CB60DC700759DE5 /* VetificationrecordsCell.m */; };
-		7BE632421CB6101C00759DE5 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE632411CB6101C00759DE5 /* BaseModel.m */; };
+		7BE632421CB6101C00759DE5 /* IDRecordsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE632411CB6101C00759DE5 /* IDRecordsModel.m */; };
+		7BE7ECB71D05070E00874120 /* UIViewController+resignFirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE7ECB61D05070E00874120 /* UIViewController+resignFirstResponder.m */; };
+		7BE7ECBF1D05125300874120 /* JsonParseUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE7ECBE1D05125300874120 /* JsonParseUtil.m */; };
+		7BE7ECC51D05165300874120 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE7ECC21D05165300874120 /* NSString+MD5.m */; };
+		7BE7ECC91D05600800874120 /* FirmId.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE7ECC81D05600800874120 /* FirmId.m */; };
+		7BE9F7291D1A231C00CF295B /* BillRecordsDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE9F7281D1A231C00CF295B /* BillRecordsDetail.m */; };
 		7BEE4F131CB63F8E0018519D /* app_lauch_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7BEE4F121CB63F8E0018519D /* app_lauch_icon.jpg */; };
+		7BF406421CFD8679003C5418 /* AccountInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF406411CFD8679003C5418 /* AccountInfoModel.m */; };
+		7BF406451CFD8696003C5418 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF406441CFD8696003C5418 /* UserInfoModel.m */; };
+		7BF406481CFD86C8003C5418 /* BasicInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF406471CFD86C8003C5418 /* BasicInfoModel.m */; };
+		7BF4064B1CFD86DB003C5418 /* ExtraInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF4064A1CFD86DB003C5418 /* ExtraInfoModel.m */; };
+		7BF4064E1CFD8704003C5418 /* ModuleInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF4064D1CFD8704003C5418 /* ModuleInfoModel.m */; };
+		7BF6B4A01D0FF6DB00783ABC /* RNCryptor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B5529A91CFEB60800017FF5 /* RNCryptor.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		ED5EEDFC27203B64C1C50F4A /* Pods_Verification.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F181137FA941AAC58F9395 /* Pods_Verification.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,9 +88,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		09490D0D193C22FD46030625 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		6902BAB80D4ECFC07D170B2B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		6ACFE1AF4E3CCF92B70C0868 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		09F181137FA941AAC58F9395 /* Pods_Verification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Verification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F9B3DE248553268C179EF64 /* Pods-Verification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Verification.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Verification/Pods-Verification.debug.xcconfig"; sourceTree = "<group>"; };
 		7B0DE8F91CB34C2A0053A860 /* Verification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Verification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B0DE8FD1CB34C2B0053A860 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7B0DE8FF1CB34C2B0053A860 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -98,14 +119,39 @@
 		7B373C141CB4DFCA00B21546 /* DetailInfoUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailInfoUIViewController.m; sourceTree = "<group>"; };
 		7B373C161CB505F600B21546 /* mainLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainLoad.h; sourceTree = "<group>"; };
 		7B373C171CB505F600B21546 /* mainLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainLoad.m; sourceTree = "<group>"; };
+		7B5204EF1D1A630400BD0B3D /* BasicInfoDisplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicInfoDisplayer.h; sourceTree = "<group>"; };
+		7B5204F01D1A630400BD0B3D /* BasicInfoDisplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicInfoDisplayer.m; sourceTree = "<group>"; };
+		7B5204F21D1A63D200BD0B3D /* AccountInfoDisplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountInfoDisplayer.h; sourceTree = "<group>"; };
+		7B5204F31D1A63D200BD0B3D /* AccountInfoDisplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountInfoDisplayer.m; sourceTree = "<group>"; };
+		7B5204F51D1A640C00BD0B3D /* ExtraInfoDisplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtraInfoDisplayer.h; sourceTree = "<group>"; };
+		7B5204F61D1A640C00BD0B3D /* ExtraInfoDisplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtraInfoDisplayer.m; sourceTree = "<group>"; };
+		7B5529A61CFE748600017FF5 /* AESUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESUtil.h; sourceTree = "<group>"; };
+		7B5529A71CFE748600017FF5 /* AESUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESUtil.m; sourceTree = "<group>"; };
+		7B5529A91CFEB60800017FF5 /* RNCryptor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RNCryptor.framework; path = "../../../Library/Developer/Xcode/DerivedData/Verification-cnmzfcsfblyquhffdzzqcoyceisy/Build/Products/Debug-iphonesimulator/RNCryptor/RNCryptor.framework"; sourceTree = "<group>"; };
+		7B5529AB1CFEB7C100017FF5 /* RNCryptor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RNCryptor.framework; path = "Pods/../build/Release-iphoneos/RNCryptor/RNCryptor.framework"; sourceTree = "<group>"; };
+		7B5565F01CFD2EFA00962A50 /* MyKeyStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyKeyStore.h; sourceTree = "<group>"; };
+		7B5565F11CFD6D0100962A50 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7B6E88071CB6589C007FD961 /* RecordsDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordsDetail.h; sourceTree = "<group>"; };
 		7B6E88081CB6589C007FD961 /* RecordsDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordsDetail.m; sourceTree = "<group>"; };
+		7B70E3931D065D3F00140C88 /* IDUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDUtil.h; sourceTree = "<group>"; };
+		7B70E3941D065D3F00140C88 /* IDUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDUtil.m; sourceTree = "<group>"; };
+		7B729D461D10EF590012F99D /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag.png; sourceTree = "<group>"; };
+		7B729D481D1108D50012F99D /* VertificationrecordsCellHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VertificationrecordsCellHeader.h; sourceTree = "<group>"; };
+		7B729D491D1108D50012F99D /* VertificationrecordsCellHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VertificationrecordsCellHeader.m; sourceTree = "<group>"; };
+		7B729D4B1D11569A0012F99D /* BillRecordsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillRecordsModel.h; sourceTree = "<group>"; };
+		7B729D4C1D11569A0012F99D /* BillRecordsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillRecordsModel.m; sourceTree = "<group>"; };
 		7B912FB31CB49CFB0074B73C /* VertificationCategory.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = VertificationCategory.plist; sourceTree = "<group>"; };
 		7B912FBC1CB4A4ED0074B73C /* NetConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetConnection.h; sourceTree = "<group>"; };
 		7B912FBD1CB4A4ED0074B73C /* NetConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetConnection.m; sourceTree = "<group>"; };
 		7B912FC01CB4A7A00074B73C /* Consts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Consts.h; sourceTree = "<group>"; };
-		7BE1131C1CB764A300DD5A39 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
-		7BE1131D1CB764A300DD5A39 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		7BBA48551D12892D00BE30BF /* UITableViewController+Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewController+Alert.h"; sourceTree = "<group>"; };
+		7BBA48561D12892D00BE30BF /* UITableViewController+Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewController+Alert.m"; sourceTree = "<group>"; };
+		7BBA48581D12AEF700BE30BF /* FilterForRecords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterForRecords.h; sourceTree = "<group>"; };
+		7BBA48591D12AEF700BE30BF /* FilterForRecords.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterForRecords.m; sourceTree = "<group>"; };
+		7BCFBED41D13A07500EAEB5D /* IDRecordsModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDRecordsModelData.h; sourceTree = "<group>"; };
+		7BCFBED51D13A07500EAEB5D /* IDRecordsModelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDRecordsModelData.m; sourceTree = "<group>"; };
+		7BCFBED71D13A30400EAEB5D /* BillRecordsModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillRecordsModelData.h; sourceTree = "<group>"; };
+		7BCFBED81D13A30400EAEB5D /* BillRecordsModelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillRecordsModelData.m; sourceTree = "<group>"; };
 		7BE113221CB765DB00DD5A39 /* public_key.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = public_key.der; sourceTree = "<group>"; };
 		7BE113241CB791C700DD5A39 /* libiconv.2.4.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.4.0.tbd; path = usr/lib/libiconv.2.4.0.tbd; sourceTree = SDKROOT; };
 		7BE113271CB79AE500DD5A39 /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
@@ -135,9 +181,30 @@
 		7BE6322B1CB6008400759DE5 /* icon_refresh_7@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_refresh_7@3x.png"; sourceTree = "<group>"; };
 		7BE6323A1CB60DC700759DE5 /* VetificationrecordsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VetificationrecordsCell.h; sourceTree = "<group>"; };
 		7BE6323B1CB60DC700759DE5 /* VetificationrecordsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VetificationrecordsCell.m; sourceTree = "<group>"; };
-		7BE632401CB6101C00759DE5 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
-		7BE632411CB6101C00759DE5 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		7BE632401CB6101C00759DE5 /* IDRecordsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDRecordsModel.h; sourceTree = "<group>"; };
+		7BE632411CB6101C00759DE5 /* IDRecordsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDRecordsModel.m; sourceTree = "<group>"; };
+		7BE7ECB51D05070E00874120 /* UIViewController+resignFirstResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+resignFirstResponder.h"; sourceTree = "<group>"; };
+		7BE7ECB61D05070E00874120 /* UIViewController+resignFirstResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+resignFirstResponder.m"; sourceTree = "<group>"; };
+		7BE7ECBD1D05125300874120 /* JsonParseUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonParseUtil.h; sourceTree = "<group>"; };
+		7BE7ECBE1D05125300874120 /* JsonParseUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonParseUtil.m; sourceTree = "<group>"; };
+		7BE7ECC11D05165300874120 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		7BE7ECC21D05165300874120 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		7BE7ECC71D05600800874120 /* FirmId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirmId.h; sourceTree = "<group>"; };
+		7BE7ECC81D05600800874120 /* FirmId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirmId.m; sourceTree = "<group>"; };
+		7BE9F7271D1A231C00CF295B /* BillRecordsDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillRecordsDetail.h; sourceTree = "<group>"; };
+		7BE9F7281D1A231C00CF295B /* BillRecordsDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillRecordsDetail.m; sourceTree = "<group>"; };
 		7BEE4F121CB63F8E0018519D /* app_lauch_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = app_lauch_icon.jpg; sourceTree = "<group>"; };
+		7BF406401CFD8679003C5418 /* AccountInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountInfoModel.h; sourceTree = "<group>"; };
+		7BF406411CFD8679003C5418 /* AccountInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountInfoModel.m; sourceTree = "<group>"; };
+		7BF406431CFD8696003C5418 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
+		7BF406441CFD8696003C5418 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
+		7BF406461CFD86C8003C5418 /* BasicInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicInfoModel.h; sourceTree = "<group>"; };
+		7BF406471CFD86C8003C5418 /* BasicInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicInfoModel.m; sourceTree = "<group>"; };
+		7BF406491CFD86DB003C5418 /* ExtraInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtraInfoModel.h; sourceTree = "<group>"; };
+		7BF4064A1CFD86DB003C5418 /* ExtraInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtraInfoModel.m; sourceTree = "<group>"; };
+		7BF4064C1CFD8704003C5418 /* ModuleInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModuleInfoModel.h; sourceTree = "<group>"; };
+		7BF4064D1CFD8704003C5418 /* ModuleInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModuleInfoModel.m; sourceTree = "<group>"; };
+		D8E93C5A9CF70D29E2AA28E7 /* Pods-Verification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Verification.release.xcconfig"; path = "Pods/Target Support Files/Pods-Verification/Pods-Verification.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,9 +212,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BF6B4A01D0FF6DB00783ABC /* RNCryptor.framework in Frameworks */,
 				7BE113251CB791C700DD5A39 /* libiconv.2.4.0.tbd in Frameworks */,
 				7B0DE9381CB38DA60053A860 /* CoreData.framework in Frameworks */,
-				387C5423B4D35BA93FE6FD4E /* libPods.a in Frameworks */,
+				ED5EEDFC27203B64C1C50F4A /* Pods_Verification.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,8 +242,8 @@
 				7B0DE8FB1CB34C2A0053A860 /* Verification */,
 				7B0DE9151CB34C2B0053A860 /* VerificationTests */,
 				7B0DE8FA1CB34C2A0053A860 /* Products */,
-				F4185A6C0450F84B902869D7 /* Pods */,
 				A5C8BE5E7C6332286E1B528D /* Frameworks */,
+				BE7E2C083ADD33C0ADDC8ACF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -226,9 +294,11 @@
 		7B0DE9211CB366B10053A860 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7B5204EE1D1A62D800BD0B3D /* InfoDisplayer */,
+				7BE7ECB41D05065800874120 /* Category */,
 				7B0DE9311CB36F7C0053A860 /* FirstVertificationUI */,
 				7B0DE9321CB36F7C0053A860 /* SecondRecordsTableView */,
-				7B0DE9331CB36F7C0053A860 /* ThirdInfoUI */,
+				7B0DE9331CB36F7C0053A860 /* Main */,
 				7B0DE9241CB367250053A860 /* FirstTabbarItem.h */,
 				7B0DE9251CB367250053A860 /* FirstTabbarItem.m */,
 				7B0DE9271CB367730053A860 /* SecondTabbarItem.h */,
@@ -244,8 +314,26 @@
 			isa = PBXGroup;
 			children = (
 				7B0DE9391CB392870053A860 /* ImageRelevent.xcdatamodeld */,
-				7BE632401CB6101C00759DE5 /* BaseModel.h */,
-				7BE632411CB6101C00759DE5 /* BaseModel.m */,
+				7BE632401CB6101C00759DE5 /* IDRecordsModel.h */,
+				7BE632411CB6101C00759DE5 /* IDRecordsModel.m */,
+				7BF406401CFD8679003C5418 /* AccountInfoModel.h */,
+				7BF406411CFD8679003C5418 /* AccountInfoModel.m */,
+				7BF406431CFD8696003C5418 /* UserInfoModel.h */,
+				7BF406441CFD8696003C5418 /* UserInfoModel.m */,
+				7BF406461CFD86C8003C5418 /* BasicInfoModel.h */,
+				7BF406471CFD86C8003C5418 /* BasicInfoModel.m */,
+				7BF406491CFD86DB003C5418 /* ExtraInfoModel.h */,
+				7BF4064A1CFD86DB003C5418 /* ExtraInfoModel.m */,
+				7BF4064C1CFD8704003C5418 /* ModuleInfoModel.h */,
+				7BF4064D1CFD8704003C5418 /* ModuleInfoModel.m */,
+				7BE7ECC71D05600800874120 /* FirmId.h */,
+				7BE7ECC81D05600800874120 /* FirmId.m */,
+				7B729D4B1D11569A0012F99D /* BillRecordsModel.h */,
+				7B729D4C1D11569A0012F99D /* BillRecordsModel.m */,
+				7BCFBED41D13A07500EAEB5D /* IDRecordsModelData.h */,
+				7BCFBED51D13A07500EAEB5D /* IDRecordsModelData.m */,
+				7BCFBED71D13A30400EAEB5D /* BillRecordsModelData.h */,
+				7BCFBED81D13A30400EAEB5D /* BillRecordsModelData.m */,
 			);
 			name = Models;
 			path = Verification/Models;
@@ -260,6 +348,8 @@
 				7BE632121CB5E2AB00759DE5 /* RecordsCategoryCell.m */,
 				7BE6323A1CB60DC700759DE5 /* VetificationrecordsCell.h */,
 				7BE6323B1CB60DC700759DE5 /* VetificationrecordsCell.m */,
+				7B729D481D1108D50012F99D /* VertificationrecordsCellHeader.h */,
+				7B729D491D1108D50012F99D /* VertificationrecordsCellHeader.m */,
 			);
 			name = Views;
 			path = Verification/Views;
@@ -283,11 +373,15 @@
 				7BE6321A1CB5F90900759DE5 /* VertificationRecords.m */,
 				7B6E88071CB6589C007FD961 /* RecordsDetail.h */,
 				7B6E88081CB6589C007FD961 /* RecordsDetail.m */,
+				7BBA48581D12AEF700BE30BF /* FilterForRecords.h */,
+				7BBA48591D12AEF700BE30BF /* FilterForRecords.m */,
+				7BE9F7271D1A231C00CF295B /* BillRecordsDetail.h */,
+				7BE9F7281D1A231C00CF295B /* BillRecordsDetail.m */,
 			);
 			path = SecondRecordsTableView;
 			sourceTree = "<group>";
 		};
-		7B0DE9331CB36F7C0053A860 /* ThirdInfoUI */ = {
+		7B0DE9331CB36F7C0053A860 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				7B373C161CB505F600B21546 /* mainLoad.h */,
@@ -295,14 +389,39 @@
 				7BE632161CB5F0DD00759DE5 /* Login.h */,
 				7BE632171CB5F0DD00759DE5 /* Login.m */,
 			);
+			name = Main;
 			path = ThirdInfoUI;
+			sourceTree = "<group>";
+		};
+		7B5204EE1D1A62D800BD0B3D /* InfoDisplayer */ = {
+			isa = PBXGroup;
+			children = (
+				7B5204EF1D1A630400BD0B3D /* BasicInfoDisplayer.h */,
+				7B5204F01D1A630400BD0B3D /* BasicInfoDisplayer.m */,
+				7B5204F21D1A63D200BD0B3D /* AccountInfoDisplayer.h */,
+				7B5204F31D1A63D200BD0B3D /* AccountInfoDisplayer.m */,
+				7B5204F51D1A640C00BD0B3D /* ExtraInfoDisplayer.h */,
+				7B5204F61D1A640C00BD0B3D /* ExtraInfoDisplayer.m */,
+			);
+			name = InfoDisplayer;
+			sourceTree = "<group>";
+		};
+		7B5529A51CFE744300017FF5 /* AES */ = {
+			isa = PBXGroup;
+			children = (
+				7B5529A61CFE748600017FF5 /* AESUtil.h */,
+				7B5529A71CFE748600017FF5 /* AESUtil.m */,
+			);
+			name = AES;
 			sourceTree = "<group>";
 		};
 		7B912FBB1CB4A4A90074B73C /* NetWorking */ = {
 			isa = PBXGroup;
 			children = (
+				7BE7ECC01D05165300874120 /* RsaExcutive */,
+				7BE7ECBC1D05125300874120 /* JsonParser */,
+				7B5529A51CFE744300017FF5 /* AES */,
 				7BE113261CB79AE500DD5A39 /* RSAED */,
-				7BE1131B1CB764A300DD5A39 /* RsaExcutive */,
 				7B912FBC1CB4A4ED0074B73C /* NetConnection.h */,
 				7B912FBD1CB4A4ED0074B73C /* NetConnection.m */,
 			);
@@ -316,20 +435,13 @@
 				7B912FC01CB4A7A00074B73C /* Consts.h */,
 				7BE1132A1CB7A36B00DD5A39 /* DateUtil.h */,
 				7BE1132B1CB7A36B00DD5A39 /* DateUtil.m */,
+				7B5565F01CFD2EFA00962A50 /* MyKeyStore.h */,
+				7B70E3931D065D3F00140C88 /* IDUtil.h */,
+				7B70E3941D065D3F00140C88 /* IDUtil.m */,
 			);
 			name = PublicDef;
 			path = Verification/PublicDef;
 			sourceTree = "<group>";
-		};
-		7BE1131B1CB764A300DD5A39 /* RsaExcutive */ = {
-			isa = PBXGroup;
-			children = (
-				7BE1131C1CB764A300DD5A39 /* NSString+MD5.h */,
-				7BE1131D1CB764A300DD5A39 /* NSString+MD5.m */,
-			);
-			name = RsaExcutive;
-			path = Verification/RsaExcutive;
-			sourceTree = SOURCE_ROOT;
 		};
 		7BE113261CB79AE500DD5A39 /* RSAED */ = {
 			isa = PBXGroup;
@@ -354,6 +466,7 @@
 		7BE6321D1CB6008400759DE5 /* iconfresh */ = {
 			isa = PBXGroup;
 			children = (
+				7B729D461D10EF590012F99D /* flag.png */,
 				7BE6321E1CB6008400759DE5 /* icon_refresh_1@2x.png */,
 				7BE6321F1CB6008400759DE5 /* icon_refresh_1@3x.png */,
 				7BE632201CB6008400759DE5 /* icon_refresh_2@2x.png */,
@@ -372,6 +485,35 @@
 			path = iconfresh;
 			sourceTree = "<group>";
 		};
+		7BE7ECB41D05065800874120 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				7BE7ECB51D05070E00874120 /* UIViewController+resignFirstResponder.h */,
+				7BE7ECB61D05070E00874120 /* UIViewController+resignFirstResponder.m */,
+				7BBA48551D12892D00BE30BF /* UITableViewController+Alert.h */,
+				7BBA48561D12892D00BE30BF /* UITableViewController+Alert.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		7BE7ECBC1D05125300874120 /* JsonParser */ = {
+			isa = PBXGroup;
+			children = (
+				7BE7ECBD1D05125300874120 /* JsonParseUtil.h */,
+				7BE7ECBE1D05125300874120 /* JsonParseUtil.m */,
+			);
+			path = JsonParser;
+			sourceTree = "<group>";
+		};
+		7BE7ECC01D05165300874120 /* RsaExcutive */ = {
+			isa = PBXGroup;
+			children = (
+				7BE7ECC11D05165300874120 /* NSString+MD5.h */,
+				7BE7ECC21D05165300874120 /* NSString+MD5.m */,
+			);
+			path = RsaExcutive;
+			sourceTree = "<group>";
+		};
 		7BEE4F111CB63F8E0018519D /* lauch */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,17 +525,20 @@
 		A5C8BE5E7C6332286E1B528D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B5529AB1CFEB7C100017FF5 /* RNCryptor.framework */,
+				7B5529A91CFEB60800017FF5 /* RNCryptor.framework */,
+				7B5565F11CFD6D0100962A50 /* Security.framework */,
 				7BE113241CB791C700DD5A39 /* libiconv.2.4.0.tbd */,
-				6ACFE1AF4E3CCF92B70C0868 /* libPods.a */,
+				09F181137FA941AAC58F9395 /* Pods_Verification.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F4185A6C0450F84B902869D7 /* Pods */ = {
+		BE7E2C083ADD33C0ADDC8ACF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				09490D0D193C22FD46030625 /* Pods.debug.xcconfig */,
-				6902BAB80D4ECFC07D170B2B /* Pods.release.xcconfig */,
+				5F9B3DE248553268C179EF64 /* Pods-Verification.debug.xcconfig */,
+				D8E93C5A9CF70D29E2AA28E7 /* Pods-Verification.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -405,12 +550,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B0DE91B1CB34C2B0053A860 /* Build configuration list for PBXNativeTarget "Verification" */;
 			buildPhases = (
-				98BD5D3EF4E248A5A1487EFD /* Check Pods Manifest.lock */,
+				957166FF0040447CBB326D3C /* 📦 Check Pods Manifest.lock */,
 				7B0DE8F51CB34C2A0053A860 /* Sources */,
 				7B0DE8F61CB34C2A0053A860 /* Frameworks */,
 				7B0DE8F71CB34C2A0053A860 /* Resources */,
-				1AFBAA1ADB57BE8384F0825E /* Embed Pods Frameworks */,
-				1BC5F9733AABE1B6061C32BD /* Copy Pods Resources */,
+				53B1CDC6BF0642C3AF6471D5 /* 📦 Embed Pods Frameworks */,
+				C4E9C03D0A5A55653AD3C4DF /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -502,6 +647,7 @@
 				7BE632361CB6008400759DE5 /* icon_refresh_6@2x.png in Resources */,
 				7BE632391CB6008400759DE5 /* icon_refresh_7@3x.png in Resources */,
 				7B0DE9071CB34C2B0053A860 /* Main.storyboard in Resources */,
+				7B729D471D10EF590012F99D /* flag.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,49 +661,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1AFBAA1ADB57BE8384F0825E /* Embed Pods Frameworks */ = {
+		53B1CDC6BF0642C3AF6471D5 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Verification/Pods-Verification-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1BC5F9733AABE1B6061C32BD /* Copy Pods Resources */ = {
+		957166FF0040447CBB326D3C /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		98BD5D3EF4E248A5A1487EFD /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C4E9C03D0A5A55653AD3C4DF /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Verification/Pods-Verification-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -567,27 +713,47 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B5204F71D1A640C00BD0B3D /* ExtraInfoDisplayer.m in Sources */,
+				7BBA48571D12892D00BE30BF /* UITableViewController+Alert.m in Sources */,
 				7BE113291CB79AE500DD5A39 /* RSA.m in Sources */,
-				7BE632421CB6101C00759DE5 /* BaseModel.m in Sources */,
+				7BE9F7291D1A231C00CF295B /* BillRecordsDetail.m in Sources */,
+				7BF406421CFD8679003C5418 /* AccountInfoModel.m in Sources */,
+				7BE632421CB6101C00759DE5 /* IDRecordsModel.m in Sources */,
+				7B5204F11D1A630400BD0B3D /* BasicInfoDisplayer.m in Sources */,
+				7BF4064B1CFD86DB003C5418 /* ExtraInfoModel.m in Sources */,
 				7B0DE9291CB367730053A860 /* SecondTabbarItem.m in Sources */,
 				7BE1132C1CB7A36B00DD5A39 /* DateUtil.m in Sources */,
 				7B0DE9041CB34C2B0053A860 /* ViewController.m in Sources */,
+				7B5529A81CFE748600017FF5 /* AESUtil.m in Sources */,
 				7B0DE9011CB34C2B0053A860 /* AppDelegate.m in Sources */,
+				7BBA485A1D12AEF700BE30BF /* FilterForRecords.m in Sources */,
 				7BE632181CB5F0DD00759DE5 /* Login.m in Sources */,
 				7B6E88091CB6589C007FD961 /* RecordsDetail.m in Sources */,
+				7BE7ECC51D05165300874120 /* NSString+MD5.m in Sources */,
 				7B373C151CB4DFCA00B21546 /* DetailInfoUIViewController.m in Sources */,
+				7B70E3951D065D3F00140C88 /* IDUtil.m in Sources */,
+				7BF406481CFD86C8003C5418 /* BasicInfoModel.m in Sources */,
+				7BCFBED61D13A07500EAEB5D /* IDRecordsModelData.m in Sources */,
 				7BE632131CB5E2AB00759DE5 /* RecordsCategoryCell.m in Sources */,
-				7BE113201CB764A300DD5A39 /* NSString+MD5.m in Sources */,
+				7BE7ECBF1D05125300874120 /* JsonParseUtil.m in Sources */,
+				7BE7ECC91D05600800874120 /* FirmId.m in Sources */,
+				7BF406451CFD8696003C5418 /* UserInfoModel.m in Sources */,
+				7BE7ECB71D05070E00874120 /* UIViewController+resignFirstResponder.m in Sources */,
 				7B0DE8FE1CB34C2B0053A860 /* main.m in Sources */,
 				7B0DE92F1CB369180053A860 /* BaseCell.m in Sources */,
 				7B373C181CB505F600B21546 /* mainLoad.m in Sources */,
 				7B0DE92C1CB367A90053A860 /* ThirdTabbarItem.m in Sources */,
 				7B0DE9261CB367250053A860 /* FirstTabbarItem.m in Sources */,
 				7BE6323C1CB60DC700759DE5 /* VetificationrecordsCell.m in Sources */,
+				7B729D4A1D1108D50012F99D /* VertificationrecordsCellHeader.m in Sources */,
+				7BF4064E1CFD8704003C5418 /* ModuleInfoModel.m in Sources */,
+				7B729D4D1D11569A0012F99D /* BillRecordsModel.m in Sources */,
 				7B912FBE1CB4A4ED0074B73C /* NetConnection.m in Sources */,
 				7BE6321B1CB5F90900759DE5 /* VertificationRecords.m in Sources */,
 				7B0DE93B1CB392870053A860 /* ImageRelevent.xcdatamodeld in Sources */,
 				7B0DE9361CB36FBF0053A860 /* VertificatonUI.m in Sources */,
+				7BCFBED91D13A30400EAEB5D /* BillRecordsModelData.m in Sources */,
+				7B5204F41D1A63D200BD0B3D /* AccountInfoDisplayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,10 +879,15 @@
 		};
 		7B0DE91C1CB34C2B0053A860 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 09490D0D193C22FD46030625 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 5F9B3DE248553268C179EF64 /* Pods-Verification.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Release-iphoneos/RNCryptor",
+				);
 				INFOPLIST_FILE = Verification/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yonggao.Verification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -725,10 +896,15 @@
 		};
 		7B0DE91D1CB34C2B0053A860 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6902BAB80D4ECFC07D170B2B /* Pods.release.xcconfig */;
+			baseConfigurationReference = D8E93C5A9CF70D29E2AA28E7 /* Pods-Verification.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Release-iphoneos/RNCryptor",
+				);
 				INFOPLIST_FILE = Verification/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yonggao.Verification;
 				PRODUCT_NAME = "$(TARGET_NAME)";

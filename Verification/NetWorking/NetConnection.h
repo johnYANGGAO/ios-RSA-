@@ -26,6 +26,7 @@ typedef void(^ErrorBlock)(NSString *error);
 
 - (NSDictionary *)dictionaryWithData:(NSData *)data;
 
+- (NSString *)dictionaryToJsonStr:(NSDictionary *)dic;
 
 @end
 

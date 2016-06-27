@@ -12,5 +12,5 @@
 
 + (NSString *)stringFromDate:(NSString *)date;
 + (NSDate *)dateFromString:(NSString *)string;
-
++ (NSString *)formatDateString:(NSString *)datestring withType:(NSInteger)type;
 @end

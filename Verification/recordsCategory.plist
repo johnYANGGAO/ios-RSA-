@@ -6,13 +6,13 @@
 		<key>title</key>
 		<string>核查纪录</string>
 		<key>image</key>
-		<string></string>
+		<string>flag.png</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>账单纪录</string>
 		<key>image</key>
-		<string></string>
+		<string>flag.png</string>
 	</dict>
 </array>
 </plist>

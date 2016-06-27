@@ -7,25 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+resignFirstResponder.h"
+#import <SSKeychain/SSKeychain.h>
 
-@interface VertificatonUI : UIViewController{
+@interface VertificatonUI : UIViewController<UITextFieldDelegate>{
  
 }
-@property (nonatomic, weak) NSString *type;
+@property (nonatomic, strong) NSString * type;
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scroview;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
 
 @property (weak, nonatomic) IBOutlet UITextField *name;
 
 @property (weak, nonatomic) IBOutlet UITextField *idnumber;
 
-@property (weak, nonatomic) IBOutlet UIView *seconedView;
-
 @property (weak, nonatomic) IBOutlet UITextField *creditCard;
 
 @property (weak, nonatomic) IBOutlet UITextField *cellphone;
+@property (weak, nonatomic) IBOutlet UIView *background;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 
-- (IBAction)backItem:(UIButton *)sender;
+- (IBAction)back:(UIBarButtonItem *)sender;
 
 - (IBAction)startCheck:(UIButton *)sender;
 

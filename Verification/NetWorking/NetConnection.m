@@ -57,12 +57,12 @@ static dispatch_once_t predicate;
     
     NSURLSessionDataTask *dataTask=[manager POST:postRequestUrl.absoluteString  parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        NSLog(@"%@ ",responseObject);
+//        NSLog(@"%@ ",responseObject);
         success(responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
-        NSLog(@"Error: %@", error);
+//        NSLog(@"Error: %@", error);
         failure(error.localizedDescription);
         
     }];
@@ -82,12 +82,10 @@ static dispatch_once_t predicate;
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     NSURLSessionDataTask *dataTask=[manager GET:getRequestUrl.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        NSLog(@"%@ ",responseObject);
         success(responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
-        NSLog(@"Error: %@", error);
         failure(error.localizedDescription);
         
     }];
@@ -127,6 +125,25 @@ static dispatch_once_t predicate;
         return nil;
     }
     return dic;
+}
+
+- (NSString *)dictionaryToJsonStr:(NSDictionary *)dic{
+
+    NSString *jsonString = nil;
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic
+                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                         error:&error];
+    if (! jsonData) {
+        NSLog(@"Got an error: %@", error);
+    } else {
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+    return jsonString;
+
+
+
+
 }
 
 

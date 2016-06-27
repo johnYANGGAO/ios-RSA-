@@ -7,9 +7,13 @@
 //
 
 #import "RecordsDetail.h"
+#import "IDRecordsModel.h"
+#import "DateUtil.h"
+#import "NSString+MD5.h"
 
 @interface RecordsDetail (){
     
+    IDRecordsModel *idrecordsmodel;
 }
 
 @end
@@ -22,140 +26,36 @@
     
     [super viewDidLoad];
     [self initViews];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+   
 }
 
 - (void)initViews{
 
-    self.name.text=model.name;
-    self.money.text=model.money;
-    self.projectName.text=model.project;
-    self.creditCardNum.text=model.creditCard;
-    self.IpAdress.text=model.ipAdress;
-    self.date.text=model.time;
-   
     
+    idrecordsmodel=model;
+    
+    self.name.text= idrecordsmodel.UserName;
+    self.projectName.text=idrecordsmodel.Module;
+    self.creditCardNum.text=idrecordsmodel.BankCardNo.length>0?idrecordsmodel.BankCardNo.addStarNumber:@"无";
+    self.IDcard.text=idrecordsmodel.IDCardNo.addStarNumber;
+    self.date.text= [DateUtil formatDateString:idrecordsmodel.InsertDate withType:0];
+    self.telephone.text=idrecordsmodel.TelephoneNo.length>0?idrecordsmodel.TelephoneNo:@"无";
+    self.takefee.text=[NSString stringWithFormat:@"%@ 元",idrecordsmodel.Fee];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-/*
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return UITableViewAutomaticDimension;
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return 3;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    if (section==0) {
-        return [AcellCount count];
-        
-    }else if (section==1){
-      return [BcellCount count];
-    
-    }else if(section==2){
-    
-      return [CcellCount count];
-    }
-    return 0;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-   
-    if (indexPath.section==0) {
-        
-        NSString *identify=[AcellCount objectAtIndex:indexPath.row];
-        
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify forIndexPath:indexPath];
-         NSLog(@"cell s0 success");
-        return cell;
-        
-    }else if (indexPath.section==1){
-       
-        NSString *identify=[BcellCount objectAtIndex:indexPath.row];
-        
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify forIndexPath:indexPath];
-        if(cell==nil){
-        
-            NSLog(@"cell is nil");
-        
-        }
-        NSLog(@"cell s1 success");
-
-        return cell;
-
-    }else if(indexPath.section==2){
-        NSString *identify=[CcellCount objectAtIndex:indexPath.row];
-        
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify forIndexPath:indexPath];
-        NSLog(@"cell s2 success");
-
-        return cell;
-        
-    }
-    
-    return nil;
-}
-
-*/
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     if(indexPath.section==2){
-    
         if (indexPath.row==0) {
-            NSLog(@"马上开启result");
+            
+            //这里可以直接 弹出对话框提示   对应的结果 放在此处
+            [self showAlertResult:idrecordsmodel.Result withRoot:self.navigationController andTitle:@"查询结果"];
         }
-    
     }
 
 }

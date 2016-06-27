@@ -36,4 +36,34 @@
     NSDate *date=[formatter dateFromString:dateString];
     return date;
 }
+
+//处理.net 返回的特殊时间格式
++ (NSString *)formatDateString:(NSString *)datestring withType:(NSInteger)type{
+//2016-05-23T10:17:34.786+08:00
+//    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"yy-MM-dd hh:mm"];
+//    NSDate* date = [dateFormatter dateFromString:datestring];
+//    if (0==type) {
+//        [dateFormatter setDateFormat:@"yy-MM-dd hh:mm"];
+//
+//    }else if(1==type){
+//        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+//    }
+//    return [dateFormatter stringFromDate:date];
+    NSString* input = datestring;
+    
+    NSString* year  = [input substringWithRange: NSMakeRange( 0, 4)];
+    NSString* month = [input substringWithRange: NSMakeRange( 5, 2)];
+    NSString* day   = [input substringWithRange: NSMakeRange( 8, 2)];
+    NSString* time  = [input substringWithRange: NSMakeRange(11, 8)];
+    NSString* output = nil;
+    if(0==type){
+        output = [NSString stringWithFormat:@"%@/%@/%@ ",day,month,year];
+    }else if (1==type){
+        output = [NSString stringWithFormat:@"%@/%@/%@ %@ ",day,month,year,time];
+    }
+    return output;
+}
+
+
 @end

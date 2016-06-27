@@ -1,0 +1,10 @@
+EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/AFNetworking" "$PODS_CONFIGURATION_BUILD_DIR/CocoaSecurity" "$PODS_CONFIGURATION_BUILD_DIR/MJExtension" "$PODS_CONFIGURATION_BUILD_DIR/MJRefresh" "$PODS_CONFIGURATION_BUILD_DIR/RNCryptor" "$PODS_CONFIGURATION_BUILD_DIR/SSKeychain" "$PODS_CONFIGURATION_BUILD_DIR/ios-linechart-2" "$PODS_CONFIGURATION_BUILD_DIR/ios-versioncheck" "$PODS_CONFIGURATION_BUILD_DIR/uikit-utils"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/AFNetworking/AFNetworking.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/CocoaSecurity/CocoaSecurity.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/MJExtension/MJExtension.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/MJRefresh/MJRefresh.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/RNCryptor/RNCryptor.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/SSKeychain/SSKeychain.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/ios-linechart-2/ios_linechart_2.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/ios-versioncheck/ios_versioncheck.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/uikit-utils/uikit_utils.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "CocoaSecurity" -framework "MJExtension" -framework "MJRefresh" -framework "RNCryptor" -framework "SSKeychain" -framework "ios_linechart_2" -framework "ios_versioncheck" -framework "uikit_utils"
+OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
+PODS_BUILD_DIR = $BUILD_DIR
+PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_ROOT = ${SRCROOT}/Pods

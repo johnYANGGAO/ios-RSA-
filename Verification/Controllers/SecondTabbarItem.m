@@ -8,7 +8,9 @@
 
 #import "SecondTabbarItem.h"
 #import "RecordsCategoryCell.h"
-#import "VertificationRecords.h"
+#import "FilterForRecords.h"
+
+
 @implementation SecondTabbarItem
 
 -(void)viewDidLoad{
@@ -60,8 +62,16 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    VertificationRecords *vrcontroller=[self.storyboard instantiateViewControllerWithIdentifier:@"VertificationRecords"];
-    vrcontroller.type=indexPath.row;
-    [self presentViewController:vrcontroller animated:YES completion:nil];
-}
+   
+     
+     FilterForRecords *ctrol=[self.storyboard instantiateViewControllerWithIdentifier:@"FilterForRecordsViewController"];
+     
+     ctrol.displaytype=indexPath.row;
+     
+     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:ctrol];
+     
+     [self presentViewController:navController animated:YES completion:nil];
+    
+    
+    }
 @end

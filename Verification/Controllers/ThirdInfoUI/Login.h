@@ -7,14 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+//to avoid  duplicate interface definition for class sskeychain
+#import <SSKeychain/SSKeychain.h>
+#import "UIViewController+resignFirstResponder.h"
 
-@interface Login : UIViewController
+@interface Login : UIViewController<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *account;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 
 - (IBAction)sure:(UIButton *)sender;
 
-@property (weak, nonatomic) IBOutlet UIImageView *background;
 - (void)getConnection:(NSString *)url;
+
 @end

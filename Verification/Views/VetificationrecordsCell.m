@@ -8,66 +8,37 @@
 
 #import "VetificationrecordsCell.h"
 #import "Consts.h"
+#import "DateUtil.h"
+
+
 @interface VetificationrecordsCell(){
     
-    UILabel *date;/**时间 */
-    UILabel *labelname;/**姓名*/
-    UILabel *labelproject;/**项目*/
+//    UILabel *date;/**时间 */
+//    UILabel *labelname;/**姓名*/
+//    UILabel *labelproject;/**项目*/
     
 }
+@property (weak, nonatomic) IBOutlet UILabel *date;
+@property (weak, nonatomic) IBOutlet UILabel *labelname;
+@property (weak, nonatomic) IBOutlet UILabel *labelproject;
 @end
 
 @implementation VetificationrecordsCell
+@synthesize idrecordsmodel;
+@synthesize billrecordsmodel;
 
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        [self initViews];
-    }
-    return self;
-}
-
-- (void)initViews{
-    
-    UIView *cellView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 55)];
-    cellView.backgroundColor=[UIColor whiteColor];
-    
-    date = [[UILabel alloc] initWithFrame:CGRectMake(0,0, screen_width/3,cellView.frame.size.height)];
-    date.textAlignment = NSTextAlignmentCenter;
-    date.textColor = [UIColor lightGrayColor];
-    date.font = [UIFont systemFontOfSize:16];
-    [cellView addSubview:date];
-    
-    
-    labelname = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(date.frame),0, screen_width/3,cellView.frame.size.height)];
-    labelname.textAlignment = NSTextAlignmentCenter;
-    labelname.textColor = [UIColor lightGrayColor];
-    labelname.font = [UIFont systemFontOfSize:16];
-    
-    
-    [cellView addSubview:labelname];
-    
-    labelproject = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(labelname.frame),0, screen_width/3,cellView.frame.size.height)];
-    labelproject.textAlignment = NSTextAlignmentCenter;
-    labelproject.textColor = [UIColor lightGrayColor];
-    labelproject.font = [UIFont systemFontOfSize:16];
-    
-    [cellView addSubview:labelproject];
-    
-    [self addSubview:cellView];
-}
-
-- (void)setContentForCell:(BaseModel *) model{
-    if (self.type==0) {
-        date.text=model.time;
-        labelname.text=model.name;
-        labelproject.text=model.project;
+- (void)setContentForCell:(id) model withType:(NSInteger)type{
+    if (type==0) {
+        self.idrecordsmodel=model;
+        self.date.text=[DateUtil formatDateString:idrecordsmodel.InsertDate withType:0];
+        self.labelname.text=idrecordsmodel.UserName;
+        self.labelproject.text=idrecordsmodel.Module;
         
-    }else if (self.type==1){
-        date.text=model.time;
-        labelname.text=model.money;
-        labelproject.text=model.category;
+    }else if (type==1){
+        self.billrecordsmodel=model;
+        self.date.text=[DateUtil formatDateString:billrecordsmodel.ViewDate withType:0];
+        self.labelname.text=[NSString stringWithFormat:@"%@ 元", billrecordsmodel.TotalMoney];
+        self.labelproject.text=[NSString stringWithFormat:@"%d/%d", billrecordsmodel.VBankCount,billrecordsmodel.VIDCardCount];
     }
 }
 

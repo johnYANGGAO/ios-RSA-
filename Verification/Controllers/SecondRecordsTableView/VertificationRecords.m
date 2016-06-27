@@ -8,65 +8,209 @@
 
 #import "VertificationRecords.h"
 #import "VetificationrecordsCell.h"
+#import "VertificationrecordsCellHeader.h"
 #import "MJRefresh.h"
-#import "BaseModel.h"
+#import "IDRecordsModel.h"
+#import "BillRecordsModel.h"
 #import "Consts.h"
 #import "RecordsDetail.h"
+#import "MJExtension.h"
+#import "NetConnection.h"
+#import "MyKeyStore.h"
+#import "RSA.h"
+#import "DateUtil.h"
+#import "SSKeychain.h"
+#import "SSKeychainQuery.h"
+#import "IDRecordsModelData.h"
+#import "BillRecordsModelData.h"
+#import "BillRecordsDetail.h"
 @interface VertificationRecords (){
-    NSInteger page;
+    
+    NSString *page;
+    NSString *requestRecordsUrl;
+    NSDictionary *requestRecordsBodyParams;
+    NSMutableArray *datasource;
+    IDRecordsModelData *modeldata;
+    BillRecordsModelData *billdata;
+    int divider;
 }
+@property (weak, nonatomic) IBOutlet UIView *activityIndicatorBackground;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
 @implementation VertificationRecords
+//need to add other's params
+@synthesize dictionaryRequestBody;
+@synthesize type;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSLog(@"get the body parames from filter is %@",dictionaryRequestBody);
     [self initForBeging];
-    // Do any additional setup after loading the view.
+    
+    [self initIndicator:self.activityIndicator withBackground:self.activityIndicatorBackground];
+    [self startToGetNetData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-    [self initForBeging];
 }
 - (void)initForBeging{
-    page=1;
-    self.datasource=[NSMutableArray arrayWithCapacity:0];
-    [self simulatorData];
+    
+    page=@"0";
+    //must be  initialized  or  setting object does't work
+    datasource=[[NSMutableArray alloc]initWithCapacity:20];
     self.VertificationRecordsTableView.delegate=self;
     self.VertificationRecordsTableView.dataSource=self;
     [self getHeader];
-    [self getFooter];
     
 }
-/**
- *  模拟数据
- */
-- (void)simulatorData{
+
+
+- (void)initparams:(NSString *)appendurl{
+
+    NSMutableString *ms = [[NSMutableString alloc] init];
+    [ms appendString:BaseUrl];
+    [ms appendString:appendurl];
+    [ms appendString:@"=%@&pwd=%@&signature=%@"];
     
-    for (int count=0;count<15;count++){
-        BaseModel *model=[[BaseModel alloc]init];
-        if(count%2==0){
-            model.name=@"王强";
-             model.project=@"账单";
+    
+    NSString *currentDateString = [DateUtil stringFromDate:@"yyyyMMddHHmmss"];
+    NSString *singn=[RSA encryptString:currentDateString publicKey:PublicKey_vertification];
+
+    NSString *loginName= [[NSUserDefaults standardUserDefaults] objectForKey:SSKey_key_name];
+    
+    NSString *passoword = [SSKeychain passwordForService:SSKey_service account:SSKey_key_name];
+    
+    requestRecordsUrl=[NSString stringWithFormat:ms,loginName,passoword,singn];
+    
+    NSLog(@"requestUrl is %@",requestRecordsUrl);
+
+}
+
+- (void)getConnectNet:(NSString *)url withParams:(NSDictionary *)body{
+    
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:body];
+    [dic setValue:page forKey:@"Skip"];
+    
+    NSLog(@"params added is %@ and requested url is %@",dic,requestRecordsUrl);
+    
+    [self show:YES target:self.activityIndicator background:self.activityIndicatorBackground];
+    
+    NetConnection *conn=[NetConnection sharedManager];
+    
+    [conn requestPostData:dic netUrl:url successBlock:^(id responseBody) {
+        
+        NSDictionary *dict=[conn dictionaryWithData:responseBody];
+        NSLog(@"call back networking success %@",dict);
+        NSString *result=nil;
+        NSString *message =nil;
+        if(dict){
+            
+            [self show:NO target:self.activityIndicator background:self.activityIndicatorBackground];
+            result=dict[@"Result"];
+            [self endRefresh];
+            unicodeToString(dict[@"Exception"], message);
+            NSLog(@"the  exception is %@",message);
+            if(result.intValue!=0){
+                
+                [self showAlert:message withType:1];
+                
+            }else{
+                
+                if (page.intValue==0&&datasource.count>0) {
+                   
+                    [datasource removeAllObjects];
+                  
+                }
+                
+                //将dict转成 model
+                if (type==0) {
+                   
+                     modeldata=[IDRecordsModelData mj_objectWithKeyValues:dict];
+                     if(modeldata.Data.count>0){
+                         for(int i=0;i<modeldata.Data.count;i++){
+                             
+                             IDRecordsModel *idrm=[IDRecordsModel mj_objectWithKeyValues:modeldata.Data[i]];
+                             
+                             [datasource addObject:idrm];
+                         }
+                         if( datasource.count>0){
+                             [self getFooter];
+                         }
+
+                         [self.VertificationRecordsTableView reloadData];
+                        
+                     }else {
+                         [self showAlert:@"已无相关数据" withType:0];
+                         if (self.VertificationRecordsTableView.mj_footer) {
+                             if (MJRefreshStateIdle==self.VertificationRecordsTableView.mj_footer.state) {
+                                 self.VertificationRecordsTableView.mj_footer.state=MJRefreshStateNoMoreData;
+                             }
+                         }
+                     }
+                    
+                }else if(type==1){
+                    
+                    billdata=[BillRecordsModelData mj_objectWithKeyValues:dict];
+                    
+                    if(billdata.Data.count>0){
+                        
+                        for (int j=0;j< billdata.Data.count;j++) {
+                            BillRecordsModel *brm=[BillRecordsModel mj_objectWithKeyValues:billdata.Data[j]];
+                            [datasource addObject:brm];
+                        }
+                        if( datasource.count>0){
+                            [self getFooter];
+                        }
+                     [self.VertificationRecordsTableView reloadData];
+                    }else {
+                        [self showAlert:@"已无相关数据" withType:0];
+                        if (self.VertificationRecordsTableView.mj_footer) {
+                            if (MJRefreshStateIdle==self.VertificationRecordsTableView.mj_footer.state) {
+                                self.VertificationRecordsTableView.mj_footer.state=MJRefreshStateNoMoreData;
+                            }
+                        }
+
+                    }
+                   
+                }
+            }
+            
         }else{
-            model.name=@"张小小";
-             model.project=@"身份查询";
+            [self show:NO target:self.activityIndicator background:self.activityIndicatorBackground];
+            [self showAlert:@"解析错误" withType:0];
         }
-        model.category=@"手机余额";
-        model.time=@"2014－6-6";
-        model.money=@"$5";
-        model.result=@"此状态 正常 ，请放心使用 ";
-        model.ipAdress=@"196.168.0.10";
-        model.creditCard=@"622 848987654321";
-        [self.datasource addObject:model];
+        
+    } failureBlock:^(NSString *error) {
+         [self endRefresh];
+         [self show:NO target:self.activityIndicator background:self.activityIndicatorBackground];
+         NSLog(@"call back error : %@",error);
+         [self showAlert:error withType:1];
+    }];
+
+}
+
+- (void)endRefresh{
+    
+    if(self.VertificationRecordsTableView.mj_header.isRefreshing){
+        [self.VertificationRecordsTableView.mj_header endRefreshing];
     }
-    
-    
-    
+    if (self.VertificationRecordsTableView.mj_footer.isRefreshing) {
+        [self.VertificationRecordsTableView.mj_footer endRefreshing];
+    }
+
+}
+- (void)startToGetNetData{
+    if (type==0) {
+      [ self initparams:GetRecordsList];
+        
+    }else if(type==1){
+      [ self initparams:GetBillList];
+    }
+   
+    [self getConnectNet:requestRecordsUrl withParams:dictionaryRequestBody];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
@@ -80,26 +224,52 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+   
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+   
+    if (0==type) {
+        
+        RecordsDetail *ctrol=[self.storyboard instantiateViewControllerWithIdentifier:@"recordsdetailtableview"];
+        ctrol.model=[datasource objectAtIndex:indexPath.row];
+       
+        UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:ctrol];
+        
+        [self presentViewController:navController animated:YES completion:nil];
+        
+
+       
+    }else if(1==type){
+        BillRecordsDetail *ctroller=[self.storyboard instantiateViewControllerWithIdentifier:@"recordsbilltableview"];
     
+        ctroller.model=[datasource objectAtIndex:indexPath.row];
+        
+        UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:ctroller];
+        
+        [self presentViewController:navController animated:YES completion:nil];
+    
+    }
+   
+    
+    
+    NSLog(@"clicked line is %ld",indexPath.row);
    
     
 }
 
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-}
-
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//}
+/*暂未解决 header 一起滑动
 -(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewRowAction *infoAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"详情" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        /**
-         *  查看详情
-         */
+       
         RecordsDetail *ctrol=[self.storyboard instantiateViewControllerWithIdentifier:@"recordsdetailtableview"];
-        ctrol.model=[self.datasource objectAtIndex:indexPath.row];
-        //storyboard视图层加载不上
+        
+        ctrol.model=[datasource objectAtIndex:indexPath.row];
+        ctrol.type=type;
+        //还有种方式 是直接 用 storyboard视图层加载 但值带不过去？？？
         UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:ctrol];
     
         [self presentViewController:navController animated:YES completion:nil];
@@ -110,7 +280,7 @@
     
         UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
             
-            [self.datasource removeObjectAtIndex:indexPath.row];
+            [datasource removeObjectAtIndex:indexPath.row];
     
             // refresh
             [self.VertificationRecordsTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -121,94 +291,31 @@
     
     
 }
-
+*/
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static  NSString *identify=@"vertificationrecordscell";
     VetificationrecordsCell * cell=[tableView dequeueReusableCellWithIdentifier:identify];
     
-    if(cell==nil){
-        cell= [[VetificationrecordsCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:identify];
-    }
-    BaseModel * model= _datasource[indexPath.row];
-    if (self.type==0) {
-        cell.type=0;
-        [cell setContentForCell:model];
-        
-        
-    }else if(self.type==1){
-        cell.type=1;
-        [cell setContentForCell:model];
-        
-        
-    }
-    
-    return cell;
+        [ cell setContentForCell:[datasource objectAtIndex:indexPath.row] withType:type];
+        return cell;
 }
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
+    static  NSString *identify=@"recordcellheader";
+     VertificationrecordsCellHeader *cellheader=[tableView dequeueReusableCellWithIdentifier:identify];
+    
+    NSDictionary *dic=nil;
     if (self.type==0) {
-        //时间 姓名 项目
-        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 40)];
-        headerView.backgroundColor=navigationBarColor;
         
-        UILabel *date = [[UILabel alloc] initWithFrame:CGRectMake(0,0, screen_width/3,headerView.frame.size.height)];
-        date.textAlignment = NSTextAlignmentCenter;
-        date.textColor = [UIColor whiteColor];
-        date.font = [UIFont systemFontOfSize:15];
-        date.text = @"时间";
-        
-        [headerView addSubview:date];
-        
-        
-        UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(date.frame),0, screen_width/3,headerView.frame.size.height)];
-        name.textAlignment = NSTextAlignmentCenter;
-        name.textColor = [UIColor whiteColor];
-        name.font = [UIFont systemFontOfSize:15];
-        name.text = @"姓名";
-        
-        [headerView addSubview:name];
-        
-        UILabel *project = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(name.frame),0, screen_width/3,headerView.frame.size.height)];
-        project.textAlignment = NSTextAlignmentCenter;
-        project.textColor = [UIColor whiteColor];
-        project.font = [UIFont systemFontOfSize:15];
-        project.text = @"项目";
-        
-        [headerView addSubview:project];
-        
-        return headerView;
+        dic=[NSDictionary dictionaryWithObjectsAndKeys:@"时间",@"date",@"姓名",@"content",@"项目",@"type", nil];
         
     }else if(self.type==1){
-        
-        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 40)];
-        headerView.backgroundColor=navigationBarColor;
-        
-        UILabel *date = [[UILabel alloc] initWithFrame:CGRectMake(0,0, screen_width/3,headerView.frame.size.height)];
-        date.textAlignment = NSTextAlignmentCenter;
-        date.textColor = [UIColor whiteColor];
-        date.font = [UIFont systemFontOfSize:15];
-        date.text = @"时间";
-        
-        [headerView addSubview:date];
-        
-        
-        UILabel *money = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(date.frame)+10,0, screen_width/3,headerView.frame.size.height)];
-        money.textAlignment = NSTextAlignmentCenter;
-        money.textColor = [UIColor whiteColor];
-        money.font = [UIFont systemFontOfSize:15];
-        money.text = @"金额";
-        
-        [headerView addSubview:money];
-        
-        UILabel *category = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(money.frame)+10,0, screen_width/3,headerView.frame.size.height)];
-        category.textAlignment = NSTextAlignmentCenter;
-        category.textColor = [UIColor whiteColor];
-        category.font = [UIFont systemFontOfSize:15];
-        category.text = @"项目";
-        [headerView addSubview:category];
-        return headerView;
+        dic=[NSDictionary dictionaryWithObjectsAndKeys:@"时间",@"date",@"金额",@"content",@"卡次/证次",@"type", nil];
+
     }
-    return nil;
+    [cellheader setTitles:dic];
+    return cellheader;
     
 }
 
@@ -218,12 +325,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return  [_datasource count];
+    return  [datasource count];
     
 }
 
 
-
+#pragma mark Refresh
 - (void)getHeader{
     
     MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadfreshdata)];
@@ -256,13 +363,15 @@
 }
 
 - (void)loadfreshdata{
-    
-    
+    page=@"0";
+    [self getConnectNet:requestRecordsUrl withParams:dictionaryRequestBody];
 }
 - (void)loadMoreData{
-    page++;
-    
-    
+    //备注:后台的分页处理机制 针对的是pc端
+    divider+=19;
+    page=[NSString stringWithFormat:@"%d",divider];
+    NSLog(@"loadmore divider is %d and page is %@",divider,page);
+    [self getConnectNet:requestRecordsUrl withParams:dictionaryRequestBody];
 }
 - (void)getFooter{
     

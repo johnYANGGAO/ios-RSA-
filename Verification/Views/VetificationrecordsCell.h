@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseModel.h"
+#import "IDRecordsModel.h"
+#import "BillRecordsModel.h"
 @interface VetificationrecordsCell : UITableViewCell
+@property (nonatomic ,strong) IDRecordsModel *idrecordsmodel;
+@property (nonatomic ,strong) BillRecordsModel *billrecordsmodel;
+- (void)setContentForCell:(id) model withType:(NSInteger)type;
 
-@property (nonatomic ,assign) NSInteger type;
-@property (nonatomic ,strong) BaseModel * model;
-
-- (void)setContentForCell:(BaseModel *) model;
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 @end

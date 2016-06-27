@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CocoaSecurity.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MJExtension.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -19,7 +24,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-Verification.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RNCryptor.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SSKeychain.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,37 +57,52 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4A769AA0D67B2B064B62CA17C547E8A6</key>
+		<key>04237AFC7A4B949398BCE00EF283E6D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8F74D9EA91F4C43190670066BAC37D44</key>
+		<key>1C3436CEA5C3D39764C5F54374794ECB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>900EDEC27E4E91F10957E89FD00B69E3</key>
+		<key>29F287A3AEF6E7A59A6CE4EC13204780</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>928353533005A4198EBDA5B700D37B64</key>
+		<key>419B01754983C1243C3FADC7DD5D2763</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9EAB3E42EF957541E6C3C76D35FD008E</key>
+		<key>6847254D016329D4A531D34ED2B6DF81</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A1821FD34C088CAE3976C6A0D1AE233B</key>
+		<key>7C0126D717EB28DC6DB2EEA2E20B5172</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B2688B404F956620DF08C16196A1DF33</key>
+		<key>895CA3018680C08CEFE56A079868B058</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>90B2840AB96CFDCBD62C7A56DFD6562C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>953817B3D0F65FD41EC82EAE1618B49E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C6519985889C771955F152BD69D6B10C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
